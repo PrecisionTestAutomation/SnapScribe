@@ -24,13 +24,8 @@ public class GlobalKeyListener implements NativeKeyListener {
                 Rectangle captureRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
                 BufferedImage screenFullImage = robot.createScreenCapture(captureRect);
 
-                // Put screenshot into clipboard
-                TransferableImage transImage = new TransferableImage(screenFullImage);
-                Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-                clipboard.setContents(transImage, null);
-
                 System.out.println("F9 Key Pressed: Screenshot captured and copied to clipboard");
-                storeDataWindow.pasteImageFromClipboard();
+                storeDataWindow.pasteImageFromClipboard(ImageConverter.convertToFxImage(screenFullImage));
                 System.out.println("Pasted on VBOX");
             } catch (AWTException | HeadlessException ex) {
                 System.err.println("Error capturing screen or copying to clipboard");

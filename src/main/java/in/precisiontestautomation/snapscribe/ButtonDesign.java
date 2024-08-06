@@ -20,6 +20,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
+import java.util.Objects;
 
 import static in.precisiontestautomation.snapscribe.AlertHelper.showAlert;
 import static in.precisiontestautomation.snapscribe.AlertHelper.showTransparentAlert;
@@ -30,7 +31,7 @@ public class ButtonDesign extends Application {
 
     @Override
     public void start(Stage primaryStage) throws NativeHookException {
-        Image applicationIcon = new Image(getClass().getResourceAsStream("/icons/app_icon.png"));
+        Image applicationIcon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/icons/app_icon.png")));
         primaryStage.getIcons().add(applicationIcon);
         // Creating buttons
         Button playButton = new Button("▶");

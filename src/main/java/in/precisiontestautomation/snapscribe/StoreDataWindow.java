@@ -50,9 +50,8 @@ public class StoreDataWindow extends Application {
 
 
 
-    public void pasteImageFromClipboard() {
+    public void pasteImageFromClipboard(Image image) {
         Platform.runLater(() -> {
-        Image image = Clipboard.getSystemClipboard().getImage();
         if (image != null) {
             VBox container = new VBox(10);
             container.setStyle("-fx-background-color: #f0f0f0; -fx-padding: 10px;");
@@ -90,10 +89,6 @@ public class StoreDataWindow extends Application {
         imageView.setStyle("-fx-border-color: gray; -fx-border-width: 1px;");
 
         return imageView;
-    }
-
-    public VBox getPane(){
-        return pane;
     }
 }
 
