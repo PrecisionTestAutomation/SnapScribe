@@ -42,6 +42,7 @@ public class ExportVBoxContent {
                 e.printStackTrace();
             }
         }
+        stage.close();
     }
 
     private static void processVBoxContents(VBox vbox, XWPFDocument document) {
