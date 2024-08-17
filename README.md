@@ -66,3 +66,6 @@ Example of the application interface and screenshot flow.
 
 ### License
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+### Mac APP Generation
+jpackage --type dmg --input /target --name SnapScribe --main-jar SnapScribe-1.0.0.jar --main-class in.precisiontestautomation.snapscribe.Main --app-version "1.0.0" --icon /src/main/resources/icons/file_885090.icns --mac-package-name "SnapScribe"
