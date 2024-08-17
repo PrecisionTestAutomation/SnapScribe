@@ -69,3 +69,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ### Mac APP Generation
 jpackage --type dmg --input /target --name SnapScribe --main-jar SnapScribe-1.0.0.jar --main-class in.precisiontestautomation.snapscribe.Main --app-version "1.0.0" --icon /src/main/resources/icons/file_885090.icns --mac-package-name "SnapScribe"
+
+### Windows APP Generation
+Load [convertJavaFxExe.xml](src%2Fmain%2Fresources%2FconvertJavaFxExe.xml) in [Launch4j](https://launch4j.sourceforge.net/) make the changes and save the file.
