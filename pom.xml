@@ -6,7 +6,7 @@
 
     <groupId>in.precisiontestautomation</groupId>
     <artifactId>SnapScribe</artifactId>
-    <version>1.0.0.0</version>
+    <version>1.0.0</version>
     <name>SnapScribe</name>
 
     <properties>
