@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>C:\Users\gadda\Desktop\projects\SnapScribe\target\SnapScribe-1.0.0.jar</jar>
+  <outfile>C:\Users\gadda\Desktop\projects\SnapScribe\target\SnapScribe-1.0.0.exe</outfile>
+  <errTitle>required java 17+</errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl>https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html</downloadUrl>
+  <supportUrl>https://github.com/PrecisionTestAutomation/SnapScribe/issues</supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest></manifest>
+  <icon>C:\Users\gadda\Desktop\projects\SnapScribe\src\main\resources\icons\app_icon.ico</icon>
+  <singleInstance>
+    <mutexName>SnapScribe</mutexName>
+    <windowTitle></windowTitle>
+  </singleInstance>
+  <jre>
+    <path>%JAVA_HOME%;%PATH%</path>
+    <requiresJdk>false</requiresJdk>
+    <requires64Bit>false</requires64Bit>
+    <minVersion>17.0.11</minVersion>
+    <maxVersion>22</maxVersion>
+  </jre>
+  <versionInfo>
+    <fileVersion>1.0.0.0</fileVersion>
+    <txtFileVersion>1.0.0</txtFileVersion>
+    <fileDescription>ScreenShot Automation App</fileDescription>
+    <copyright>Copyright (c) 2024 PrecisionTestAutomation</copyright>
+    <productVersion>1.0.0.0</productVersion>
+    <txtProductVersion>1.0.0</txtProductVersion>
+    <productName>SnapScribe</productName>
+    <companyName>precisiontestautomation</companyName>
+    <internalName>precisiontestautomation</internalName>
+    <originalFilename>SnapScribe-1.0.0.exe</originalFilename>
+    <trademarks>precisiontestautomation</trademarks>
+    <language>ENGLISH_US</language>
+  </versionInfo>
+</launch4jConfig>
