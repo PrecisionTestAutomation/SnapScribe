@@ -65,20 +65,24 @@ This is a JavaFX-based application designed to allow users to capture screenshot
    ```bash
    mvn javafx:run
 
-### Windows Executable (For End Users)
+## Windows Executable (For End Users)
 - Download the `.exe` file from the [releases](https://github.com/PrecisionTestAutomation/SnapScribe/releases) page.
 - Double-click the `.exe` file to start the application immediately.
 
-### Screenshots
-Example of the application interface and screenshot flow.
+## macOS Executable (For End Users)
+- Download the `.dmg` file from the [releases](https://github.com/PrecisionTestAutomation/SnapScribe/releases) page.
+- Double-click the `.dmg` file to open it.
+- Drag the application into your `Applications` folder to install it.
+- You can then launch the application from your `Applications` folder.
 
-### License
-This project is licensed under the MIT License - see the LICENSE file for details.
 
-### Mac APP Generation
+## License
+This project is licensed under the MIT License - see the [LICENSE file](https://github.com/PrecisionTestAutomation/SnapScribe/blob/main/LICENSE) for details.
+
+## Mac APP Generation
 ```bash
 jpackage --type dmg --input /target --name SnapScribe --main-jar SnapScribe-1.0.0.jar --main-class in.precisiontestautomation.snapscribe.Main --app-version "1.0.0" --icon /src/main/resources/icons/file_885090.icns --mac-package-name "SnapScribe"
 ```
 
-### Windows APP Generation
+## Windows APP Generation
 Load [convertJavaFxExe.xml](src%2Fmain%2Fresources%2FconvertJavaFxExe.xml) in [Launch4j](https://launch4j.sourceforge.net/) make the changes and save the file.
