@@ -9,7 +9,7 @@
 This is a JavaFX-based application designed to allow users to capture screenshots with a custom title and save them directly to a Word document. The application is packaged as an executable file for Windows, making it easy for users to download and start using without additional setup.
 
 ## Architecture
-![Architecture.png](images%2FArchitecture.png)
+![Architecture.svg](images%2FArchitecture.svg)
 
 ## Features
 
