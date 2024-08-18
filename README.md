@@ -1,6 +1,15 @@
-# Screenshot Listener Application
+# SnapScribe
+
+![Java CI with Maven](https://img.shields.io/badge/Java%20CI%20with-Maven-blue)
+![version](https://img.shields.io/badge/version-1.0.0-blue)
+![javadoc](https://img.shields.io/badge/javadoc-17.0.7-blue)
+![javafx](https://img.shields.io/badge/javafx-17.0.12-blue)
+![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen)
 
 This is a JavaFX-based application designed to allow users to capture screenshots with a custom title and save them directly to a Word document. The application is packaged as an executable file for Windows, making it easy for users to download and start using without additional setup.
+
+## Architecture
+![Architecture.svg](images%2FArchitecture.svg)
 
 ## Features
 
