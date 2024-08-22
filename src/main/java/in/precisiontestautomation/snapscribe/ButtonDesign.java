@@ -28,6 +28,7 @@ import static in.precisiontestautomation.snapscribe.AlertHelper.showTransparentA
 public class ButtonDesign extends Application {
     GlobalKeyListener keyListener;
     public static StoreDataWindow storeDataWindow;
+    public static MultiScreenNumberDisplay multiScreenNumberDisplay;
 
     @Override
     public void start(Stage primaryStage) throws NativeHookException {
@@ -89,7 +90,7 @@ public class ButtonDesign extends Application {
                 storeDataWindow.displayWindow(); // This line will display the current data
                 storeDataWindow = null;
             } else {
-                showAlert("Screenshot Listener Not Started", "Please start the listener before stopping.");
+                showAlert("Screenshot Listener Not Started", "Please start the listener before stopping.",1);
             }
         });
 
@@ -114,12 +115,21 @@ public class ButtonDesign extends Application {
 
     private void startGlobalListener(Stage primaryStage) {
         primaryStage.setIconified(true);
-        if (storeDataWindow == null) {
-            storeDataWindow = new StoreDataWindow();
-            Stage storeStage = new Stage();
-            storeDataWindow.start(storeStage);
-            showTransparentAlert("Screenshot listener started. Click F9 to take a screenshot.");
+        Stage multiScreenStage = new Stage();
+        if(multiScreenNumberDisplay == null){
+                multiScreenNumberDisplay = new MultiScreenNumberDisplay();
+                multiScreenNumberDisplay.start(multiScreenStage);
         }
+
+        multiScreenNumberDisplay.setOnConfirmation(() -> {
+            if (storeDataWindow == null) {
+                storeDataWindow = new StoreDataWindow();
+                storeDataWindow.start(multiScreenStage);
+                showTransparentAlert("Screenshot listener started. Click F9 to take a screenshot.");
+            }
+        });
+
+
     }
 
 
