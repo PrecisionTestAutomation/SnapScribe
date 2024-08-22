@@ -18,8 +18,8 @@ import javafx.util.Duration;
  */
 public class AlertHelper {
 
-    public static void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
+    public static void showAlert(String title, String message,long timeout) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
@@ -28,7 +28,7 @@ public class AlertHelper {
         alert.show();
 
         // Create a pause transition for 2 seconds before starting the fade
-        PauseTransition delay = new PauseTransition(Duration.seconds(1));
+        PauseTransition delay = new PauseTransition(Duration.seconds(timeout));
         delay.setOnFinished(event -> {
             // Start fading the alert after 2 seconds
             fadeOutAlert(alert);
