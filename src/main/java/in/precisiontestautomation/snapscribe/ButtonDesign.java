@@ -121,17 +121,22 @@ public class ButtonDesign extends Application {
                 multiScreenNumberDisplay.start(multiScreenStage);
         }
 
-        multiScreenNumberDisplay.setOnConfirmation(() -> {
-            if (storeDataWindow == null) {
-                storeDataWindow = new StoreDataWindow();
-                storeDataWindow.start(multiScreenStage);
-                showTransparentAlert("Screenshot listener started. Click F9 to take a screenshot.");
-            }
-        });
 
+        if(multiScreenNumberDisplay.getScreenCount()>1){
+            multiScreenNumberDisplay.setOnConfirmation(() -> startDataWindow(multiScreenStage));
+        } else {
+            startDataWindow(multiScreenStage);
+        }
 
     }
 
+    private void startDataWindow(Stage stage) {
+        if (storeDataWindow == null) {
+            storeDataWindow = new StoreDataWindow();
+            storeDataWindow.start(stage);
+        }
+        showTransparentAlert("Screenshot listener started. Click F9 to take a screenshot.");
+    }
 
     public static void main(String[] args) {
         launch(args);

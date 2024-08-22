@@ -42,3 +42,4 @@ javafx-sdk/
 .idea/
 .mvn/
 *.dmg
+dependency-reduced-pom.xml
