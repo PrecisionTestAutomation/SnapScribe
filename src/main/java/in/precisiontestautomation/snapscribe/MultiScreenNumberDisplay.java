@@ -23,17 +23,19 @@ public class MultiScreenNumberDisplay extends Application {
 
     private Rectangle bounds;
     private Runnable onConfirmationCallback;
-    private List<Stage> listStages = new ArrayList<>();
+    private final List<Stage> listStages = new ArrayList<>();
+    private GraphicsDevice[] screens;
 
     @Override
     public void start(Stage primaryStage) {
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        GraphicsDevice[] screens = ge.getScreenDevices();
+        screens = ge.getScreenDevices();
 
-        if(screens.length<1){
-            return;
-        } else {
+        if(screens.length>1){
             AlertHelper.showAlert("MultiScreen Detected","Please select the screen for which you want to take a screenshot.",10);
+        } else {
+            bounds = screens[0].getDefaultConfiguration().getBounds();
+            return;
         }
 
         for (int i = 0; i < screens.length; i++) {
@@ -97,5 +99,9 @@ public class MultiScreenNumberDisplay extends Application {
 
     public void setOnConfirmation(Runnable callback) {
         this.onConfirmationCallback = callback;
+    }
+
+    public Integer getScreenCount(){
+        return screens.length;
     }
 }
