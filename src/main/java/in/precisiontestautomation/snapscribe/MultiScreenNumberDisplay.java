@@ -21,7 +21,8 @@ import java.util.List;
 
 public class MultiScreenNumberDisplay extends Application {
 
-    private Rectangle bounds;
+    private List<Rectangle> bounds = new ArrayList<>();
+    private int selectedScreen = 0;
     private Runnable onConfirmationCallback;
     private final List<Stage> listStages = new ArrayList<>();
     private GraphicsDevice[] screens;
@@ -34,13 +35,13 @@ public class MultiScreenNumberDisplay extends Application {
         if(screens.length>1){
             AlertHelper.showAlert("MultiScreen Detected","Please select the screen for which you want to take a screenshot.",10);
         } else {
-            bounds = screens[0].getDefaultConfiguration().getBounds();
+            bounds.add(screens[0].getDefaultConfiguration().getBounds());
             return;
         }
 
         for (int i = 0; i < screens.length; i++) {
             final int screenNumber = i + 1;
-            bounds = screens[i].getDefaultConfiguration().getBounds();
+            bounds.add(screens[i].getDefaultConfiguration().getBounds());
 
             Text text = new Text(String.valueOf(screenNumber));
             text.setFont(new Font(200));
@@ -57,12 +58,13 @@ public class MultiScreenNumberDisplay extends Application {
             stage.initStyle(StageStyle.TRANSPARENT);
             Scene scene = new Scene(root, 300, 300);
             scene.setFill(Color.TRANSPARENT);
-            stage.setX(bounds.x + 50);
-            stage.setY(bounds.y + 50);
+            stage.setX(bounds.get(i).x + 50);
+            stage.setY(bounds.get(i).y + 50);
             stage.setScene(scene);
             stage.show();
             listStages.add(stage);
             text.setOnMouseClicked(event -> {
+                selectedScreen = screenNumber - 1;
                 showAlert("Screen " + screenNumber + " selected!");
             });
         }
@@ -89,7 +91,7 @@ public class MultiScreenNumberDisplay extends Application {
     public BufferedImage takeScreenshot() {
         try {
             Robot robot = new Robot();
-            return robot.createScreenCapture(bounds);
+            return robot.createScreenCapture(bounds.get(selectedScreen));
         } catch (Exception e) {
             e.printStackTrace();
             return null;
