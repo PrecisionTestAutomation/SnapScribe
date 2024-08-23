@@ -1,7 +1,7 @@
 # SnapScribe
 
 ![Java CI with Maven](https://img.shields.io/badge/Java%20CI%20with-Maven-blue)
-![version](https://img.shields.io/badge/version-1.0.0-blue)
+![version](https://img.shields.io/badge/version-1.0.1-blue)
 ![javadoc](https://img.shields.io/badge/javadoc-17.0.7-blue)
 ![javafx](https://img.shields.io/badge/javafx-17.0.12-blue)
 ![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen)
