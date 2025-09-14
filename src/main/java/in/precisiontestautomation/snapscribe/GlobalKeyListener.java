@@ -5,7 +5,6 @@ import com.github.kwhat.jnativehook.keyboard.NativeKeyListener;
 import javafx.stage.Stage;
 
 import java.awt.*;
-import java.awt.datatransfer.Clipboard;
 import java.awt.image.BufferedImage;
 
 import static in.precisiontestautomation.snapscribe.ButtonDesign.multiScreenNumberDisplay;
@@ -22,15 +21,44 @@ public class GlobalKeyListener implements NativeKeyListener {
         if (e.getKeyCode() == NativeKeyEvent.VC_F9) {
             System.out.println("F9 Key Pressed Globally");
             try {
-
+                // Hide floating toolbar temporarily during screenshot
+                if (ButtonDesign.getFloatingToolbar() != null) {
+                    ButtonDesign.getFloatingToolbar().hideForScreenshot();
+                }
+                
+                // Small delay to ensure toolbar is hidden
+                Thread.sleep(150);
+                
                 BufferedImage screenFullImage = multiScreenNumberDisplay.takeScreenshot();
-
-                System.out.println("F9 Key Pressed: Screenshot captured and copied to clipboard");
-                storeDataWindow.pasteImageFromClipboard(ImageConverter.convertToFxImage(screenFullImage));
-                System.out.println("Pasted on VBOX");
+                
+                if (screenFullImage != null) {
+                    System.out.println("F9 Key Pressed: Screenshot captured successfully - Size: " + 
+                                     screenFullImage.getWidth() + "x" + screenFullImage.getHeight());
+                    storeDataWindow.pasteImageFromClipboard(ImageConverter.convertToFxImage(screenFullImage));
+                    System.out.println("Pasted on VBOX");
+                } else {
+                    System.err.println("Screenshot capture failed - returned null image");
+                }
+                
+                // Show toolbar again after screenshot
+                if (ButtonDesign.getFloatingToolbar() != null) {
+                    ButtonDesign.getFloatingToolbar().showAfterScreenshot();
+                }
+                
             } catch (HeadlessException ex) {
                 System.err.println("Error capturing screen or copying to clipboard");
                 ex.printStackTrace();
+                // Ensure toolbar is shown again even if there's an error
+                if (ButtonDesign.getFloatingToolbar() != null) {
+                    ButtonDesign.getFloatingToolbar().showAfterScreenshot();
+                }
+            } catch (InterruptedException ex) {
+                System.err.println("Thread interrupted during screenshot delay");
+                ex.printStackTrace();
+                // Ensure toolbar is shown again even if there's an error
+                if (ButtonDesign.getFloatingToolbar() != null) {
+                    ButtonDesign.getFloatingToolbar().showAfterScreenshot();
+                }
             }
         }
     }

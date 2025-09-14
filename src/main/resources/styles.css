@@ -1,0 +1,138 @@
+/* SnapScribe Modern UI Styles */
+
+.root {
+    -fx-background-color: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 50%, #f1f3f4 100%);
+}
+
+/* Modern Button Styles */
+.button {
+    -fx-font-family: "SF Pro Display", "Segoe UI", sans-serif;
+    -fx-font-weight: bold;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 8, 0, 0, 8);
+    -fx-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    -fx-text-fill: white;
+    -fx-border-width: 0;
+}
+
+.button:hover {
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 10);
+}
+
+.button:pressed {
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+.button:disabled {
+    -fx-opacity: 0.4;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 4, 0, 0, 4);
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+}
+
+/* Distinct Start / Stop button visual refinements */
+.start-button {
+    -fx-background-color: linear-gradient(to bottom, #16c47f, #0fa76d 60%, #0d9662);
+    -fx-background-insets: 0,1;
+    -fx-border-color: rgba(255,255,255,0.35);
+    -fx-border-width: 1;
+    -fx-border-radius: 15px;
+}
+.start-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #19d988, #11b878 60%, #0fa169);
+    -fx-border-color: rgba(255,255,255,0.6);
+}
+.stop-button {
+    -fx-background-color: linear-gradient(to bottom, #f87171, #ef4444 55%, #dc2626);
+    -fx-background-insets: 0,1;
+    -fx-border-color: rgba(0,0,0,0.25);
+    -fx-border-width: 1;
+    -fx-border-radius: 15px;
+}
+.stop-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #fb7d7d, #f25555 55%, #e63232);
+    -fx-border-color: rgba(0,0,0,0.45);
+}
+
+/* Label Styles */
+.label {
+    -fx-font-family: "SF Pro Display", "SF Pro Text", "Segoe UI", sans-serif;
+}
+
+/* Tooltip Styles */
+.tooltip {
+    -fx-background-color: rgba(0, 0, 0, 0.9);
+    -fx-text-fill: white;
+    -fx-background-radius: 6px;
+    -fx-padding: 10px 12px;
+    -fx-font-family: "SF Pro Text", sans-serif;
+    -fx-font-size: 12px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 4, 0, 0, 2);
+}
+
+/* Instruction Box */
+.instruction-box {
+    -fx-background-color: rgba(255, 255, 255, 0.95);
+    -fx-background-radius: 15px;
+    -fx-border-color: rgba(0,0,0,0.1);
+    -fx-border-radius: 15px;
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 4, 0, 0, 2);
+}
+
+/* Status Bar */
+.status-bar {
+    -fx-background-color: linear-gradient(to right, #f8fafc, #f1f5f9);
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 1 0 0 0;
+}
+
+/* Help Button */
+.help-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 50%;
+}
+
+.help-button:hover {
+    -fx-background-color: rgba(99, 102, 241, 0.1);
+    -fx-background-radius: 50%;
+}
+
+/* Animation Classes */
+.fade-in {
+    -fx-opacity: 0;
+    -fx-transition: opacity 0.5s ease-in;
+}
+
+.fade-in.visible {
+    -fx-opacity: 1;
+}
+
+/* Custom Scrollbar */
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: rgba(0,0,0,0.2);
+    -fx-background-radius: 3px;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: rgba(0,0,0,0.3);
+}
+
+.scroll-bar .track {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
